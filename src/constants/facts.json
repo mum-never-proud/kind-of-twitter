@@ -12,7 +12,8 @@
     "facts": [
       "You can only view <span class='text-primary font-weight-bold'>your Tweets</span> here.",
       "Any actions (Like in this case) is <span class='text-primary font-weight-bold'>real time</span> and will be synced across devices",
-      "Option to delete your Tweet will be provided soon."
+      "Option to delete your Tweet will be provided soon.",
+      "Your account will be tagged as <span class='text-primary font-weight-bold'>Verified</span> when created on specific days!"
     ]
   },
   "/profile": {
