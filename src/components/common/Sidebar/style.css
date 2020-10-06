@@ -1,0 +1,16 @@
+@media (max-width: 767px) {
+  .sidebar--menu > li {
+    text-align: center;
+  }
+}
+
+.sidebar--menu {
+  list-style-type: none;
+}
+
+.sidebar--menu > li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.5s;
+}

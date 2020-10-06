@@ -1,0 +1,4 @@
+.navigation-links > li:not(:last-child)::after {
+  content: '•';
+  margin: 0 10px;
+}

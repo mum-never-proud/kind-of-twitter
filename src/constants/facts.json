@@ -1,0 +1,32 @@
+{
+  "/explore": {
+    "title": "Explore",
+    "facts": [
+      "You cannot view your own <span class='text-primary font-weight-bold'>Tweets</span> here.",
+      "Other tweets actions such as <span class='text-primary font-weight-bold'>Retweet</span> or <span class='text-primary font-weight-bold'>Bookmarks</span> to be roled out soon.",
+      "Your account will be tagged as <span class='text-primary font-weight-bold'>Verified</span>. If you create Accounts on certain Days. Can you find out one?"
+    ]
+  },
+  "/home": {
+    "title": "Home",
+    "facts": [
+      "You can only view <span class='text-primary font-weight-bold'>your Tweets</span> here.",
+      "Any actions (Like in this case) is <span class='text-primary font-weight-bold'>real time</span> and will be synced across devices",
+      "Option to delete your Tweet will be provided soon."
+    ]
+  },
+  "/profile": {
+    "title": "Profile",
+    "facts": [
+      "You can soon <span class='text-primary font-weight-bold'>Follow</span> or get some <span class='text-primary font-weight-bold'>Followers</span>."
+    ]
+  },
+  "*": {
+    "title": "Getting Lost",
+    "facts": [
+      "Travel often; Getting lost will help you find yourself.",
+      "It is a myth that we panic when lost. Instead, most of us experience shock, disbelief, and embarrassment.",
+      "Fifty-four per cent of people are found within two miles of the point where they were last seen."
+    ]
+  }
+}

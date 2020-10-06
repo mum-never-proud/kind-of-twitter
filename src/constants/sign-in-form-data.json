@@ -1,0 +1,32 @@
+{
+  "showBrandIcon": true,
+  "header": "Sign In to Twitter",
+  "fields": [
+    {
+      "name": "email",
+      "type": "email",
+      "value": "",
+      "label": "Email address"
+    },
+    {
+      "name": "password",
+      "type": "password",
+      "value": "",
+      "label": "Password"
+    }
+  ],
+  "button": {
+    "text": "Sign In",
+    "variant": "primary"
+  },
+  "navigationLinks": [
+    {
+      "text": "Forgot Password?",
+      "url": "/forgot-password"
+    },
+    {
+      "text": "Sign Up for Twitter",
+      "url": "/sign-up"
+    }
+  ]
+}

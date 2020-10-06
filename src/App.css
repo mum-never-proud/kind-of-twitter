@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
+
+html, body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-icon {
+  font-size: 26px;
+}
+
+.twitter--textarea, .twitter--textarea:focus {
+  resize: vertical;
+  border: 0;
+  border-bottom: 1px solid #e1e1e1;
+  outline: none;
+  box-shadow: none;
+}
+
+.twitter--text-secondary {
+  color: #494f54;
+}
+
+button:disabled, input:disabled {
+  cursor: not-allowed;
+}
+
+.icon-spin {
+  -webkit-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
