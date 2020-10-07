@@ -29,7 +29,7 @@ const Explore = ({
         </Form.Group>
       </Form>
       {
-        (!errors.lenght && !isFetching && tweets.length === 0) && (
+        (!errors.length && !isFetching && tweets.length === 0) && (
           <>
             <NoTweets />
             <p className="text-primary text-center">

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import Backendless from '@services/backendless';
 
-const { Messaging, UserService } = Backendless;
+const { Files, Messaging, UserService } = Backendless;
 const users = Backendless.Data.of('users');
 const tweets = Backendless.Data.of('tweets');
 
@@ -80,6 +80,8 @@ export const save = (tweet) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+export const remove = (objectId) => tweets.remove({ objectId });
+
 updateTweetStats.like = (userId, tweet) => {
   const userIndex = tweet.likes.indexOf(userId);
 
@@ -96,5 +98,7 @@ updateTweetStats.like = (userId, tweet) => {
       { authorId: res.ownerId },
     ));
 };
+
+export const uploadFile = (file) => Files.upload(file, 'uploads', true);
 
 export { updateTweetStats };

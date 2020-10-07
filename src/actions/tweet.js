@@ -63,7 +63,7 @@ export const reset = () => ({
 
 export const saveTweet = (tweet, headers) => (dispatch) => {
   // before save
-  tweet.likes = [];
+  tweet.likes = tweet.likes || [];
 
   dispatch(saveTweetRequest());
   tweetService.save(tweet)

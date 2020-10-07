@@ -8,7 +8,7 @@ const RefetchButton = ({ isFetching, onRefetch }) => (
     variant="link"
     className="shadow-lg position-absolute m-auto border border-primary rounded"
     style={{
-      left: 0, right: 0, zIndex: 1, backgroundColor: '#fff',
+      left: 0, right: 0, zIndex: 1, backgroundColor: '#fff', maxWidth: '41px',
     }}
     onClick={onRefetch}
   >

@@ -23,16 +23,18 @@ const FormBuilder = ({
   const handleChange = (e) => setFormState({ ...formState, [e.target.name]: e.target.value });
 
   useEffect(() => {
+    const [firstFormField] = Object.values(formRefs);
+
+    firstFormField.current?.focus();
+  }, []);
+
+  useEffect(() => {
     if (validationErrors?.size) {
       const [[firstErrorFieldName]] = validationErrors.entries();
 
       formRefs[firstErrorFieldName]?.current.focus();
-    } else if (!serverErrors?.length) {
-      const [firstFormField] = Object.values(formRefs);
-
-      firstFormField?.current.focus();
     }
-  }, [validationErrors, serverErrors]);
+  }, [validationErrors]);
 
   return (
     <Form onSubmit={handleSubmit} className="col-11 col-md-6 col-lg-3 border p-4" noValidate>

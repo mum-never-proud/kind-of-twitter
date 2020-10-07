@@ -2,20 +2,21 @@ import React, { useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
 import { subscribe as subscribeChannel, unsubscribe as unsubscribeChannel } from '@services/tweet';
+import { signOut } from '@services/user';
 import { updateLocalTweet } from '@actions/tweet';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Explore from '@components/Explore';
 import Facts from '@components/Facts';
 import Home from '@components/Home';
 import PageNotFound from '@components/PageNotFound';
 import Profile from '@components/Profile';
-import PropTypes from 'prop-types';
 import ProtectedRoute from '@route-types/ProtectedRoute';
 import Sidebar from '@components/common/Sidebar';
 
-const Main = ({ user }) => {
+const Main = ({ user, errors }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,6 +26,13 @@ const Main = ({ user }) => {
 
     return () => unsubscribeChannel('kot-tweet-actions');
   }, [user.objectId]);
+
+  useEffect(() => {
+    if (errors.some((error) => error.startsWith('Not existing user token'))) {
+      signOut()
+        .then(() => window.location.reload());
+    }
+  }, [errors]);
 
   return (
     <Container fluid>
@@ -57,10 +65,12 @@ Main.propTypes = {
   user: PropTypes.shape({
     objectId: PropTypes.string,
   }).isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-const mapStateToProps = ({ userReducer }) => ({
+const mapStateToProps = ({ userReducer, tweetReducer }) => ({
   user: userReducer.user,
+  errors: userReducer.errors.concat(tweetReducer.errors),
 });
 
 export default connect(mapStateToProps)(Main);

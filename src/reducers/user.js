@@ -35,19 +35,13 @@ export default function userReducer(state = initialState, action) {
         isSubmitting: false,
         errors: action.payload || [],
       };
-    case SIGN_OUT_SUCCESS:
-      return {
-        ...state,
-        user: {},
-        errors: [],
-        userTweets: [],
-        isAuthenticated: false,
-      };
     case CLEAR_SERVER_ERRORS:
       return {
         ...state,
         errors: [],
       };
+    case SIGN_OUT_SUCCESS:
+      return initialState;
     default:
       return state;
   }
