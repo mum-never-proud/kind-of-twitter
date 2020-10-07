@@ -19,19 +19,21 @@ const TweetCard = ({
   const { objectId: userId } = user;
 
   return (
-    <Card className="mt-3 shadow">
+    <Card className="mt-3 shadow cursor-pointer tweet-card">
       <Card.Body>
-        <div className="d-flex">
+        <div className="d-flex break-word">
           <Image className="border shadow" src={`https://avatars.dicebear.com/api/human/${author.email}.svg`} width={36} height={36} roundedCircle />
           <div className="ml-3 w-100">
             <div className="d-block d-md-flex justify-content-between">
               <div className="text-muted small">
-                <span className="font-weight-bold">{author.name}</span>
-                {
-                  author.verified && (<GoVerified className="text-primary ml-1" />)
-                }
+                <div>
+                  <span className="font-weight-bold">{author.name}</span>
+                  {
+                    author.verified && (<GoVerified className="text-primary ml-1" />)
+                  }
+                </div>
                 <OverlayTrigger
-                  placement="top"
+                  placement="bottom"
                   delay={{ show: 250, hide: 400 }}
                   overlay={(
                     <Tooltip>
@@ -41,7 +43,7 @@ const TweetCard = ({
                     </Tooltip>
               )}
                 >
-                  <div>{dayjs(tweet.created).from(dayjs())}</div>
+                  <span>{dayjs(tweet.created).from(dayjs())}</span>
                 </OverlayTrigger>
               </div>
               {
