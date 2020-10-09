@@ -92,6 +92,7 @@ const Tweets = ({
         backdrop="static"
         keyboard={false}
         aria-labelledby="failed-to-upload-image"
+        animation={false}
         onHide={() => setModalProps({ ...modalProps, show: false })}
       >
         <Modal.Header closeButton>
@@ -102,7 +103,12 @@ const Tweets = ({
         <Modal.Body className="text-danger">
           {
             modalProps.mode === 'edit'
-              ? <TweetForm editTweet={modalProps.tweet} />
+              ? (
+                <TweetForm
+                  editTweet={modalProps.tweet}
+                  onSubmit={() => setModalProps({ ...modalProps, show: false })}
+                />
+              )
               : <div className="text-danger">Sure?</div>
           }
         </Modal.Body>

@@ -11,8 +11,9 @@ import Modal from 'react-bootstrap/Modal';
 import Image from 'react-bootstrap/Image';
 
 const TweetForm = ({
-  isSubmitting, editTweet, user, errors,
+  isSubmitting, editTweet, user, errors, onSubmit,
 }) => {
+  const isMounted = useRef(false);
   const messageRef = useRef();
   const fileRef = useRef();
   const dispatch = useDispatch();
@@ -35,6 +36,12 @@ const TweetForm = ({
   }, []);
 
   useEffect(() => {
+    if (isMounted.current && !isSubmitting) {
+      onSubmit();
+    }
+
+    isMounted.current = true;
+
     if (!editTweet.message && !isSubmitting) {
       setTweet({ message: '', file: '' });
       messageRef.current.focus();
@@ -135,6 +142,7 @@ const TweetForm = ({
 
 TweetForm.defaultProps = {
   editTweet: {},
+  onSubmit: () => {},
 };
 TweetForm.propTypes = {
   isSubmitting: PropTypes.bool.isRequired,
@@ -147,6 +155,7 @@ TweetForm.propTypes = {
     file: PropTypes.string,
   }),
   errors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onSubmit: PropTypes.func,
 };
 
 const mapStateToProps = ({ tweetReducer, userReducer }) => {
