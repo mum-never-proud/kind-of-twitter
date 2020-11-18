@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "backendless": "6.1.2",
-    "bootstrap": "4.5.0",
+    "bootstrap": "4.5.2",
     "dayjs": "1.9.1",
     "dotenv": "8.2.0",
     "install": "0.13.0",
